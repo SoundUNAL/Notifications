@@ -24,6 +24,7 @@ namespace NotificationsMS.Controllers
         {
             return _distributionNotiService.Get();
         }
+        
         [HttpPost("PostDistribution")]
         public ActionResult<DistributionNotification> Post(DistributionNotification noti)
         {

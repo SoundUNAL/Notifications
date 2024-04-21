@@ -1,0 +1,26 @@
+name : notifications_ms
+version: '3.8'
+services:
+  c-app:
+    build:
+      dockerfile: Dockerfile-c
+    ports:
+      - "5280:8080"
+    depends_on:
+      - mongodb-docker
+    networks:
+      - sound-notifications
+
+  mongodb-docker:
+    build:
+      dockerfile: Dockerfile-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - sound-notifications
+
+networks:
+  sound-notifications: 
+    driver: bridge 
+  
